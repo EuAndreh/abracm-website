@@ -1,3 +1,6 @@
+include:
+  - _pages
+
 collections:
   authors:
     output: true
