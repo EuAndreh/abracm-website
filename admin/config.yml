@@ -1,6 +1,7 @@
 backend:
   name: git-gateway
   branch: main
+publish_mode: editorial_workflow
 media_folder: "/assets/uploads"
 collections:
   - name: "blog"
@@ -15,6 +16,15 @@ collections:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Publish date", name: "date", widget: "datetime" }
       - { label: "Body", name: "body", widget: "markdown" }
-
-#- name: "page"
-publish_mode: editorial_workflow
+  - name: "pages"
+    label: "Páginas estáticas"
+    folder: "_pages/"
+    create: true
+    slug: "{{slug}}"
+    editor:
+      preview: false
+    fields:
+      - { label: "Layout", name: "layout", widget: "hidden", default: "default" }
+      - { label: "Título", name: "title", widget: "string" }
+      - { label: "Texto", name: "body", widget: "markdown" }
+      - { label: "Endereço", name: "permalink", widget: "string" }
