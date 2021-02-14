@@ -1,6 +1,5 @@
 ---
 layout: post
-author: ted
 title: Artigo do Kiwi
 ---
 
