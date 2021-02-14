@@ -1,0 +1,4 @@
+Você foi convidada a editar o site {{ .SiteURL }}.
+
+Aceite o convite acessando:
+{{ .SiteURL }}/admin/#invite_token={{ .Token }}
