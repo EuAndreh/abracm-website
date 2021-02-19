@@ -1,0 +1,31 @@
+---
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  {% for collection in site.collections %}
+    {% for doc in collection.docs %}
+      <url>
+        <loc>{{ doc.url | absolute_url | xml_escape }}</loc>
+        {% if doc.last_modified_at or doc.date %}
+          <lastmod>{{ doc.last_modified_at | default: doc.date | date_to_xmlschema }}</lastmod>
+        {% endif %}
+      </url>
+    {% endfor %}
+  {% endfor %}
+
+  {% for page in site.pages %}
+    <url>
+      <loc>{{ page.url | absolute_url | xml_escape }}</loc>
+      {% if page.last_modified_at %}
+        <lastmod>{{ page.last_modified_at | date_to_xmlschema }}</lastmod>
+      {% endif %}
+    </url>
+  {% endfor %}
+
+  {% for file in  site.static_files %}
+    <url>
+      <loc>{{ file.path | absolute_url | xml_escape }}</loc>
+      <lastmod>{{ file.modified_time | date_to_xmlschema }}</lastmod>
+    </url>
+  {% endfor %}
+</urlset>
